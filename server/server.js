@@ -7,6 +7,11 @@ const orderRoutes = require("./routes/orderRoutes");
 
 app.use(cors());
 app.use(express.json());
+app.use("/login", (req, res) => {
+  res.send({
+    token: "test123",
+  });
+});
 
 // routes
 app.use("/parcels", orderRoutes);
