@@ -23,8 +23,8 @@ async function loginUser(credentials) {
 const Login = ({ setToken }) => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
-  /* const [formData, setFormData] = useReducer(formReducer, {});
-  const [submitting, setSubmitting] = useState(false); */
+  // const [formData, setFormData] = useReducer(formReducer, {});
+  const [submitting, setSubmitting] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -34,11 +34,11 @@ const Login = ({ setToken }) => {
     });
     setToken(token);
 
-    /* setSubmitting(true);
+    setSubmitting(true);
 
     setTimeout(() => {
       setSubmitting(false);
-    }, 3000); */
+    }, 3000);
   };
 
   /* const handleChange = (e) => {
@@ -51,30 +51,35 @@ const Login = ({ setToken }) => {
   return (
     <div className="login-wrapper">
       <h1>Login here</h1>
-      {/* {submitting && <div>Logging in...</div>} */}
+      {submitting && <div>Logging in...</div>}
 
       <form onSubmit={handleSubmit}>
-        <label htmlFor="email">Email</label>
-        <input
-          type="email"
-          name="email"
-          id="email"
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <label htmlFor="password">Password</label>
-        <input
-          type="password"
-          name="password"
-          id="password"
-          onChange={(e) => setPassword(e.target.value)}
-        />
+        <div className="form-group">
+          <label htmlFor="email">Email</label>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            onChange={(e) => setEmail(e.target.value)}
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="password">Password</label>
+          <input
+            type="password"
+            name="password"
+            id="password"
+            onChange={(e) => setPassword(e.target.value)}
+          />
+        </div>
+
         <button type="submit">Log in</button>
       </form>
     </div>
   );
 };
 
-Login.PropTypes = {
+Login.propTypes = {
   setToken: PropTypes.func.isRequired,
 };
 

@@ -1,0 +1,84 @@
+{
+  "Header": {
+    "Title": "We are a Landing Page",
+    "Paragraph": "lorem ipsum carrots, ecological tomato soup. Homework and protein lion or to decorate diam nibh easy to drink."
+  },
+  "About": {
+    "Paragraph": "lorem ipsum carrots, enhanced undergraduate developer, but they do occaecat time and vitality, such as labor and obesity. Over the years come, who nostrud exercise, the school district work unless they aliquip advantage from it. Lorem ipsum carrots carrots, enhanced undergraduate developer, but they do occaecat time and vitality, such as labor and obesity.",
+    "Why": [
+      "Lorem ipsum smart",
+      "It is time vitality",
+      "Lorem ipsum smart",
+      "Incididunt to work"
+    ],
+    "Why2": [
+      "Aliquip from the convenience",
+      "Lorem ipsum smart",
+      "Practice district",
+      "Lorem ipsum smart"
+    ]
+  },
+  "Services": [
+    {
+      "Icon": "fa-fa-website",
+      "Name": "lorem ipsum smart",
+      "Text": "lorem ipsum carrots, ecological tomato soup. Homework and protein lion or to decorate diameter sedasd easy to drink nibh eu but smart."
+    },
+    {
+      "Icon": "fa-fa-cart-arrow-down",
+      "Name": "Minneapolis undergraduate",
+      "Text": "lorem ipsum carrots, ecological tomato soup. Homework and protein lion or to decorate diameter sedasd easy to drink nibh eu but smart."
+    },
+    {
+      "Icon": "fa-fa-cloud-download",
+      "Name": "lorem ipsum smart",
+      "Text": "lorem ipsum carrots, ecological tomato soup. Homework and protein lion or to decorate diameter sedasd easy to drink nibh eu but smart."
+    },
+    {
+      "Icon": "fa-fa-language",
+      "Name": "Minneapolis undergraduate",
+      "Text": "lorem ipsum carrots, ecological tomato soup. Homework and protein lion or to decorate diameter sedasd easy to drink nibh eu but smart."
+    },
+    {
+      "Icon": "fa-fa-plane",
+      "Name": "lorem ipsum smart",
+      "Text": "lorem ipsum carrots, ecological tomato soup. Homework and protein lion or to decorate diameter sedasd easy to drink nibh eu but smart."
+    },
+    {
+      "Icon": "fa-fa-pie-chart",
+      "Name": "Minneapolis undergraduate",
+      "Text": "lorem ipsum carrots, ecological tomato soup. Homework and protein lion or to decorate diameter sedasd easy to drink nibh eu but smart."
+    }
+  ],
+
+  "Contact": {
+    "Address,": "4321 California St., San Francisco, CA 12345",
+    "Phone,": "+1 123 456 1234",
+    "Email": "info@company.com",
+    "Facebook": "fb.com",
+    "Twitter": "twitter.com",
+    "YouTube,": "youtube.com"
+  },
+  "Features": [
+    {
+      "Icon": "fa-fa-O-comments",
+      "Title": "lorem ipsum",
+      "Text": "lorem ipsum carrots invest antioxidants gas at a time deductible, my kids will feel it."
+    },
+    {
+      "Icon": "fa-fa-bullhorn",
+      "Title": "lorem ipsum",
+      "Text": "lorem ipsum carrots invest antioxidants gas at a time deductible, my kids will feel it."
+    },
+    {
+      "Icon": "fa-fa-group",
+      "Title": "lorem ipsum",
+      "Text": "lorem ipsum carrots invest antioxidants gas at a time deductible, my kids will feel it."
+    },
+    {
+      "Icon": "fa-fa-Magic",
+      "Title": "lorem ipsum",
+      "Text": "lorem ipsum carrots invest antioxidants gas at a time deductible, my kids will feel it."
+    }
+  ]
+}
