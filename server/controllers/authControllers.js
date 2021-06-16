@@ -91,6 +91,14 @@ exports.loginUser = (req, res) => {
 };
 
 // get all parcel delivery orders
-exports.getUsers = (req, res) => {
-  res.send(users);
+exports.fetchAllOrdersByUser = (req, res) => {
+  const { id } = req.params;
+
+  const user = users.find((user) => user.id === id);
+
+  if (!user) {
+    return res.status(401).json({ message: "user not found" });
+  } else {
+    return res.status(200).json({ orders });
+  }
 };
