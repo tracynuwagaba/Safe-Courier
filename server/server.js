@@ -4,17 +4,19 @@ const cors = require("cors");
 require("dotenv").config();
 const port = process.env.PORT || 5000;
 const orderRoutes = require("./routes/orderRoutes");
+const authRoutes = require("./routes/authRoutes");
 
 app.use(cors());
 app.use(express.json());
-app.use("/login", (req, res) => {
+/* app.use("/login", (req, res) => {
   res.send({
     token: "test123",
   });
-});
+}); */
 
 // routes
 app.use("/parcels", orderRoutes);
+app.use("/auth", authRoutes);
 
 app.get("/", (req, res) => {
   res.send("Welcome to Safe Courier!");
