@@ -22,7 +22,6 @@ exports.registerNewUser = (req, res) => {
 
     // push new user to the users array
     users.push({ ...user, id: uuidv4() });
-    res.send(users);
 
     //   hash user's password
     bcrypt.genSalt(10, (err, salt) => {
@@ -52,7 +51,7 @@ exports.registerNewUser = (req, res) => {
             // send token to user
             return res
               .status(200)
-              .json({ message: "user registration successful", token });
+              .json({ message: "user registration successful", token, users });
           }
         );
       });
@@ -63,31 +62,35 @@ exports.registerNewUser = (req, res) => {
 exports.loginUser = (req, res) => {
   const { email, password } = req.body;
   // check if user exists
-  const foundUser = users.filter((user) => user.email === email);
-  if (!foundUser) {
+  const user = users.find((user) => user.email === email);
+  if (!user) {
     return res.status(401).json({ message: "email is invalid" });
   }
-  let match = bcrypt.compare(password, foundUser.password);
-  if (!match) {
-    return res.status(401).json({ message: "incorrect password" });
-  }
-  // create a token
-  jwt.sign(
-    {
-      id: foundUser._id,
-      email: foundUser.email,
-      firstName: foundUser.firstName,
-      lastName: foundUser.lastName,
-    },
-    secret,
-    { expiresIn: expiry },
-    (err, token) => {
-      if (err) {
-        return res.status(500).json({ err });
-      }
-      return res.status(200).json({ message: "user logged in", token });
+  let match = bcrypt.compare(password, user.password, (err, match) => {
+    if (err) {
+      return res.status(500).json({ err });
+    } else if (match == false) {
+      return res.status(401).json({ message: "incorrect password" });
+    } else {
+      // create a token
+      jwt.sign(
+        {
+          id: user._id,
+          email: user.email,
+          firstName: user.firstName,
+          lastName: user.lastName,
+        },
+        secret,
+        { expiresIn: expiry },
+        (err, token) => {
+          if (err) {
+            return res.status(500).json({ err });
+          }
+          return res.status(200).json({ message: "user logged in", token });
+        }
+      );
     }
-  );
+  });
 };
 
 // get all parcel delivery orders
@@ -101,4 +104,9 @@ exports.fetchAllOrdersByUser = (req, res) => {
   } else {
     return res.status(200).json({ orders });
   }
+};
+
+// get all users
+exports.getUsers = (req, res) => {
+  res.send(users);
 };
