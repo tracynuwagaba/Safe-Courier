@@ -15,10 +15,10 @@ app.use(express.json());
 }); */
 
 // routes
-app.use("/parcels", orderRoutes);
-app.use("/auth", authRoutes);
+app.use("/api/parcels", orderRoutes);
+app.use("/api/auth", authRoutes);
 
-app.get("/", (req, res) => {
+app.get("/api", (req, res) => {
   res.send("Welcome to Safe Courier!");
 });
 
