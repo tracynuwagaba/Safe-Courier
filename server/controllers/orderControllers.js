@@ -30,3 +30,16 @@ exports.cancelOrder = (req, res) => {
   orders = orders.filter((order) => order.id !== id);
   res.send(`Parcel order with the id ${id} cancelled successfully`);
 };
+
+// change destination of a parcel delivery order
+exports.changeOrderDestination = (req, res) => {
+  const { id } = req.params;
+  const { destination } = req.body;
+  const order = orders.find((order) => order.id === id);
+
+  if (destination) order.destination = destination;
+
+  return res
+    .status(200)
+    .json({ message: `Order with the id ${id} has been updated` });
+};

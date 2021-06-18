@@ -18,6 +18,7 @@ exports.registerNewUser = (req, res) => {
       firstName: req.body.firstName,
       lastName: req.body.lastName,
       email: req.body.email,
+      role: req.body.role,
     };
 
     // push new user to the users array
@@ -41,6 +42,7 @@ exports.registerNewUser = (req, res) => {
             email: user.email,
             firstName: user.firstName,
             lastName: user.lastName,
+            role: user.role,
           },
           secret,
           { expiresIn: expiry },
@@ -79,6 +81,7 @@ exports.loginUser = (req, res) => {
           email: user.email,
           firstName: user.firstName,
           lastName: user.lastName,
+          role: user.role,
         },
         secret,
         { expiresIn: expiry },
@@ -109,4 +112,16 @@ exports.fetchAllOrdersByUser = (req, res) => {
 // get all users
 exports.getUsers = (req, res) => {
   res.send(users);
+};
+
+// check if there is an admin account
+exports.checkAdmin = () => {
+  const { role } = req.body;
+
+  const admin = users.find((user) => user.role === "admin");
+
+  if (admin) {
+    return "admin account already exists";
+  }
+  // if there is none, create an admin account
 };

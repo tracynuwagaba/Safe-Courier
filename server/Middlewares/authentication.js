@@ -32,3 +32,12 @@ exports.authenticateUser = (req, res, next) => {
     next();
   });
 };
+
+exports.checkIfAdmin = (req, res, next) => {
+  if (req.user.role !== "admin") {
+    return res
+      .status(401)
+      .json({ message: "this role is resticted to admin users" });
+  }
+  return next();
+};
